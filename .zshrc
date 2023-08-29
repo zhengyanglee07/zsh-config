@@ -99,7 +99,7 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# plugins, an themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
@@ -109,8 +109,18 @@ source $ZSH/oh-my-zsh.sh
 alias php-ini-path="php --ini | grep 'Loaded Configuration File'"
 alias pest="/var/www/hypershapes/apps/hypershapes/vendor/bin/pest"
 alias eee="exit"
+alias hypershapes-cli="docker start hypershapes_1; docker exec -it hypershapes_1 /bin/zsh"
+alias hypershapes_testing-cli="docker start hypershapes_testing; docker exec -it hypershapes_testing /bin/bash"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export BROWSER='/mnt/c/Program Files/Google/Chrome/Application/chrome.exe'
+export BROWSER='/mnt/c/Program Files/Google/Chrome/Application/chrome.exe'd
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+# Command run after zsh loaded
+xhost +local:docker
